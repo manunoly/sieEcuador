@@ -1,0 +1,42 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Bienvenidos</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-content padding text-center>
+  <ion-card offset-md-2 col-md-8 text-justify>
+    <ion-card-content offset-md-2 col-md-8>
+      <div *ngIf="ancho">
+        <img src="assets/imgs/Web_Logos_800x600.png">
+      </div>
+      <div *ngIf="!ancho">
+        <img src="assets/imgs/Movil_Logos_400x400.png">
+      </div>
+      <ion-list>
+        <button ion-button full text-wrap text-justify color="primary" clear (click)="goToTaller()">
+          Inscríbete en Nuestro taller de Buenas Prácticas de Eficiencia Energética.
+        </button>
+        <button ion-button full text-wrap text-justify color="primary" clear (click)="goToHerramienta()">
+          Prueba nuestra herramienta de Etiquetado Energético.
+        </button>
+      </ion-list>
+
+    </ion-card-content>
+    <ion-card-content>
+      <p>El proyecto “Sistema de Información Energética de Edificios en Ecuador-SIE3”, tiene como objetivo la implementación
+        de herramientas que ayuden a incentivar el ahorro y eficiencia energética en edificios. Durante el proyecto se adaptará
+        he implementará una herramienta informática que permita la sistematización, gestión y visibilización de la información
+        de consumos eléctricos de, la menos, 500 edificios públicos de la costa Ecuatoriana y las Islas Galápagos. Esta herramienta
+        permitirá evaluar el impacto de medidas de bajo costo de ahorro y eficiencia energética en edificios, y también permitirá
+        idéntica edificios críticos en cuanto a consumo energético. En un segundo nivel se monitorearan 5 edificios críticos
+        y, tras un análisis de los datos, proponer medidas de ahorro y eficiencia energética.</p>
+      <p>El proyecto SIE3 es financiado por la Agencia Española de Cooperación Internacional para el Desarrollo (AECID), dentro
+        de la convocatoria de proyectos de innovación. El proyecto es coordinado por el Bee Group del CIMNE (centro público
+        de investigación español), siendo la contraparte ecuatoriana el INER, y cuenta con el apoyo de la empresa privada
+        española Inergy.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

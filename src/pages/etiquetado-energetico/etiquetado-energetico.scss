@@ -1,0 +1,20 @@
+page-etiquetado-energetico {
+  .desabilitado {
+    position: absolute;
+    background-color: #dddddd;
+    opacity: 0.5;
+    z-index: 1;
+  }
+}
+ .centrado {
+   text-align:center;
+   width: 100%;
+  }
+  .modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}

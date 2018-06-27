@@ -1,0 +1,41 @@
+<ion-header no-border>
+  <!-- <ion-header no-border> -->
+  <ion-navbar transparent>
+    <ion-title text-center color="primary">Listado de Participantes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding offset-md-2 col-md-8 text-justify>
+  <ion-list>
+    <ion-item no-lines>
+      <ion-row>
+        <ion-col col-8>
+          <b>Participante</b>
+        </ion-col>
+        <ion-col col-4>
+          <b>Institución</b>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <div *ngFor="let item of participantes | async">
+      <ion-item>
+        <ion-row>
+          <ion-col col-8>
+            {{item.nombre}}
+          </ion-col>
+          <ion-col col-4>
+            {{item.institucion}}
+          </ion-col>
+          <ion-row *ngIf="admin">
+            <ion-col>
+              {{item.correo}}
+            </ion-col>
+            <ion-col>
+              {{item.telefono}}
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

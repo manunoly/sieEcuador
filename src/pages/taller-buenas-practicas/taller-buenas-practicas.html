@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Taller de Buenas Prácticas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-center>
+  <ion-card offset-md-2 col-md-8>
+    <ion-card-header>
+      <h4>
+        Te invitamos a nuestro taller
+      </h4>
+      <br>
+      <p>
+        Buenas Prácticas de Eficiencia Energética
+      </p>
+    </ion-card-header>
+    <ion-card-content offset-md-2 col-md-8>
+      <img src="assets/imgs/taller.jpg">
+    </ion-card-content>
+    <ion-card-content>
+      <form [formGroup]="inscripcion" (ngSubmit)="submitForm()">
+        <ion-list>
+          <ion-item>
+            <ion-label>Nombre</ion-label>
+            <ion-input formControlName="nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Correo</ion-label>
+            <ion-input type="email" formControlName="correo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Teléfono</ion-label>
+            <ion-input formControlName="telefono"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Institución</ion-label>
+            <ion-input formControlName="institucion"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Comentario</ion-label>
+            <textarea formControlName="comentario"></textarea>
+          </ion-item>
+
+        </ion-list>
+        <ion-grid offset-md-2 col-md-6>
+          <ion-row>
+            <ion-col>
+              <re-captcha (resolved)="captchaResolved($event)" siteKey="6LceDl4UAAAAAAe8VxPkZKEn3LBp_5osFsGSOn2Z"></re-captcha>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button type="submit" [disabled]="!inscripcion.valid && captchaPassed">Inscribir</button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

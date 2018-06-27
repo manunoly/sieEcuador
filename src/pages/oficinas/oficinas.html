@@ -1,0 +1,31 @@
+  <ion-header no-border>
+    <ion-navbar transparent hideBackButton="true">
+      <ion-title text-center><br>Oficinas</ion-title>
+      <p text-color="my-custom-color" offset-md-2 col-md-8 text-justify>
+          The grid is composed of three units — a grid, row(s) and column(s). Columns will expand to fill their row, and will resize to fit additional columns. It is based on a 12 column layout with different breakpoints based on the screen size. The number of columns and breakpoints can be fully customized using Sass.
+      </p>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content no-padding>
+    <ion-fab left bottom>
+      <button ion-fab [attr.mini]="!ancho ? '' : null" color="light" icon-only (click)="anterior()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-fab right bottom>
+      <button disabled ion-fab [attr.mini]="!ancho ? '' : null" color="light" icon-only (click)="siguiente()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <div *ngIf="!ancho">
+      <iframe style="position:fixed; top:10px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"
+        src="https://plot.ly/~David199101/31.embed?link=false&modebar=false" frameborder="0"></iframe>
+    </div>
+    <div *ngIf="ancho">
+      <iframe style="position:fixed; top:100px; left:0px; bottom:0px; right:0px; width:100%; height:90%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"
+        src="https://plot.ly/~David199101/31.embed?link=false&modebar=false" frameborder="0"></iframe>
+    </div>
+  </ion-content>

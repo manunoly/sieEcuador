@@ -1,0 +1,95 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+  <ion-title>Etiquetado Energético</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content text-center>
+  <ion-card radio-group [(ngModel)]="tarifa">
+    <ion-card-header>
+      Seleccione tipo de tarifa
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <!-- <button ion-button (click)="mostrarImagen()"></button> -->
+          <ion-label (click)="mostrarImagen('assets/imgs/sindemanda.jpg')">
+            <img src="assets/imgs/sindemanda.jpg">
+          </ion-label>
+          <ion-radio value="Sin Demanda"></ion-radio>
+          <p>Sin Demanda</p>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="mostrarImagen('assets/imgs/condemanda.jpg')">
+            <img src="assets/imgs/condemanda.jpg">
+          </ion-label>
+          <ion-radio value="Demanda"></ion-radio>
+          <p>Con Demanda</p>
+        </ion-col>
+        <ion-col>
+          <ion-label (click)="mostrarImagen('assets/imgs/condemandahoraria.jpg')">
+            <img src="assets/imgs/condemandahoraria.jpg">
+          </ion-label>
+          <ion-radio value="horaria"></ion-radio>
+          <p>Con Demanda Horaria</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>Ingrese los Datos Requeridos</ion-card-header>
+    <ion-card-content>
+      <ng-container *ngIf="tarifa != 'horaria'; else horariaT">
+        <h3>Consumo Energía Mensual</h3>
+        <ion-list>
+          <ion-item>
+            <ion-label>Energía Activa [Kwh]</ion-label>
+            <ion-input [(ngModel)]="energia" type="number"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ng-container>
+      <ng-template #horariaT>
+        <h3>Consumo Energía Mensual</h3>
+        <h4>Energía Activa</h4>
+        <ion-list>
+        <ion-item>
+          <ion-label>08h-18h L-V [Kwh]</ion-label>
+          <ion-input [(ngModel)]="energia" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>18h-22h L-V [Kwh]</ion-label>
+          <ion-input [(ngModel)]="energia1" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>22h-08h L-V [Kwh]</ion-label>
+          <ion-input [(ngModel)]="energia2" type="number"></ion-input>
+        </ion-item>
+      </ion-list>
+      </ng-template>
+      <br>
+      <h3>Características de la edificación</h3>
+      <ion-list>
+      <ion-item>
+        <ion-label>Área de construcción [m2]</ion-label>
+        <ion-input [(ngModel)]="area" type="number"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label>Selecionar tipología</ion-label>
+        <ion-select [(ngModel)]="sector" interface="popover">
+          <ion-option *ngFor="let item of tipologias">{{item.tipo}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+      {{sector}}
+      <div offset-md-4 col-md-4 offset-2 col-8>
+        <ion-spinner name="dots"></ion-spinner>
+        <button ion-button block round color="primary" (click)=simular()>
+          Simular
+        </button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <!-- <ion-header no-border> -->
+  <ion-navbar transparent>
+    <ion-title text-center color="primary">Nosotros</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab bottom right>
+    <a hidden href="mailto:manunoly@gmail.com" target="_top"> Contacto </a>
+  </ion-fab>
+  <ion-card offset-md-2 col-md-8 text-justify>
+    <div *ngIf="ancho">
+      <img src="assets/imgs/Web_Logos_800x600.png">
+    </div>
+    <div *ngIf="!ancho">
+      <img src="assets/imgs/Movil_Logos_400x400.png">
+    </div>
+    <ion-card-content>
+      <ion-card-title text-center>
+        Nosotros
+      </ion-card-title>
+      <ul no-padding>
+        <li>
+          El proyecto SIE3 es financiado por la Agencia Española de Cooperación Internacional para el Desarrollo (AECID)
+        </li>
+        <li>
+          El proyecto es coordinado por el Bee Group del CIMNE (centro público de investigación español)
+        </li>
+        <li>
+          El Instituto Nacional de Eficiencia Energética y Energías Renovables (INER) contraparte Ecuatoria
+        </li>
+        <li>
+          La empresa privada española Inergy. Desarrolladora del software SIE3
+        </li>
+      </ul>
+      <!--       <ion-row text-wrap>
+        <ion-col>El proyecto SIE3 es financiado por la Agencia Española de Cooperación Internacional para el Desarrollo (AECID)</ion-col>
+        <ion-col>El proyecto es coordinado por el Bee Group del CIMNE (centro público de investigación español)</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>El Instituto Nacional de Eficiencia Energética y Energías Renovables (INER) contraparte Ecuatoria</ion-col>
+        <ion-col>La empresa privada española Inergy. Desarrolladora del software SIE3</ion-col>
+      </ion-row> -->
+    </ion-card-content>
+    <ion-card-content hidden no-padding>
+      <ul>
+        Desarrollor Ing. Manuel Almaguer
+        <a href="mailto:manunoly@gmail.com" target="_top"> Contacto </a>
+      </ul>
+      <ul>
+        Gráficas de Ing. Francis Vazques
+      </ul>
+      <ul>
+        Equipo de Eficiencia Energética en Edificaciones del INER
+      </ul>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

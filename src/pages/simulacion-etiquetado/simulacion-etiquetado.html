@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Resultados de la Simulación</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content text-center>
+  <ion-card>
+    <ion-card-header>
+      Rendimiento energético de su edificación
+    </ion-card-header>
+    <ion-card-content disable>
+      <h3 *ngIf="simulado">Tipología: {{simulado.tipo}}</h3>
+
+      <canvas id="gauge-a"></canvas>
+    </ion-card-content>
+    <h2 *ngIf="simulado">{{simulado.mensajeP}}</h2>
+    <h3 *ngIf="simulado">{{simulado.mensaje}}</h3>
+  </ion-card>
+  <button ion-button (click)="cerrar()">Volver</button>
+  <br>
+  <ion-row>
+    <ion-col>
+      <button ion-button block round text-wrap text-justify color="primary" clear (click)="goToTaller()">
+        Inscríbete en Nuestro taller de Buenas Prácticas de Eficiencia Energética.
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

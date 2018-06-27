@@ -1,0 +1,78 @@
+<ion-split-pane>
+  <ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title text-center>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <br>
+    <ion-list *ngIf="!(usuario | async);else usuarioPanel">
+      <button ion-item menuClose (click)="loginRegister(loginURL)">
+        <ion-icon item-start name="person" [color]="isActive(loginURL)"></ion-icon>
+        {{ loginURL.title }}
+      </button>
+    </ion-list>
+
+    <ng-template #usuarioPanel>
+      <ion-list>
+        <ion-avatar class="profilepicsize">
+          <img style="border-radius: 50%;" [src]="photoURL">
+        </ion-avatar>
+        <button ion-item menuClose>
+          <ion-icon item-start [name]="perfil.icon" [color]="isActive(perfil)"></ion-icon>
+          {{displayName}}
+        </button>
+        <button ion-item title="Salir" clear menuClose (click)="logout()">
+          Salir
+          <ion-icon item-start name="log-out"></ion-icon>
+        </button>
+      </ion-list>
+    </ng-template>
+
+
+    <ion-list>
+      <ion-item-group>
+        <button ion-item menuClose (click)="openPage({ component: 'InicioPage' })">
+          <ion-icon item-start name="home" [color]="isActive({ component: 'InicioPage' })"></ion-icon>
+          Inicio
+        </button>
+        <ion-item-divider color="light">Gráficas Generales</ion-item-divider>
+        <button ion-item menuClose *ngFor="let p of paginaGeneral" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{ p.title }}
+        </button>
+      </ion-item-group>
+      <ion-item-group>
+        <ion-item-divider color="light">Gráficas por Tipología</ion-item-divider>
+        <button ion-item menuClose *ngFor="let p of paginaTipologia" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{ p.title }}
+        </button>
+      </ion-item-group>
+      <ion-item-group>
+          <ion-item-divider color="light">Taller</ion-item-divider>
+          <button ion-item menuClose (click)="openPage(taller)">
+            <ion-icon item-start [name]="taller.icon" [color]="isActive(taller)"></ion-icon>
+            Participantes en el Taller
+          </button>
+          <button ion-item menuClose (click)="openPage(nosotros)">
+              <ion-icon item-start [name]="nosotros.icon" [color]="isActive(nosotros)"></ion-icon>
+              Nosotros
+            </button>
+      </ion-item-group>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-fab *ngIf="showbutton" right top>
+  <button mini ion-fab menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+</ion-fab>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>
